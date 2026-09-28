@@ -2,6 +2,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework import viewsets
+from usuarios.views import PodeEditarDados
 
 from pacientes.models import Paciente
 
@@ -32,38 +33,47 @@ from .serializers import (
 class RegistroDiarioViewSet(viewsets.ModelViewSet):
     queryset = RegistroDiario.objects.all()
     serializer_class = RegistroDiarioSerializer
+    permission_classes = [PodeEditarDados]
 
 
 class MedicaoGlicemicaViewSet(viewsets.ModelViewSet):
     queryset = MedicaoGlicemica.objects.all()
     serializer_class = MedicaoGlicemicaSerializer
+    permission_classes = [PodeEditarDados]
 
 class AtividadeFisicaViewSet(viewsets.ModelViewSet):
     queryset = AtividadeFisica.objects.all()
     serializer_class = AtividadeFisicaSerializer
+    permission_classes = [PodeEditarDados]
 
 class AlimentacaoViewSet(viewsets.ModelViewSet):
     queryset = Alimentacao.objects.all()
     serializer_class = AlimentacaoSerializer
+    permission_classes = [PodeEditarDados]
 
 class HidratacaoViewSet(viewsets.ModelViewSet):
     queryset = Hidratacao.objects.all()
     serializer_class = HidratacaoSerializer
+    permission_classes = [PodeEditarDados]
 
 class SonoViewSet(viewsets.ModelViewSet):
     queryset = Sono.objects.all()
-    serializer_class = SonoSerializer 
+    serializer_class = SonoSerializer
+    permission_classes = [PodeEditarDados]
 
 class SintomaViewSet(viewsets.ModelViewSet):
     queryset = Sintoma.objects.all()
     serializer_class = SintomaSerializer
+    permission_classes = [PodeEditarDados]
 
 class RegistroMedicamentoViewSet(viewsets.ModelViewSet):
     queryset = RegistroMedicamento.objects.all()
     serializer_class = RegistroMedicamentoSerializer
+    permission_classes = [PodeEditarDados]
 
 
 class HistoricoPacienteView(APIView):
+    permission_classes = [PodeEditarDados]
 
     def get(self, request, paciente_id):
 

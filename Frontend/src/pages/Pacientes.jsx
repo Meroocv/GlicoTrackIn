@@ -3,6 +3,9 @@ import { Link } from "react-router-dom"
 import { listarPacientes } from "../services/pacientes"
 
 function Pacientes() {
+
+  console.log("PACIENTES COMPONENTE RENDERIZADO")
+
   const [pacientes, setPacientes] = useState([])
   const [carregando, setCarregando] = useState(true)
   const [erro, setErro] = useState(null)

@@ -23,4 +23,5 @@ urlpatterns = [
     path("api/", include("pacientes.urls")),
     path("api/", include("acompanhamentos.urls")),
     path("api/pacientes/<int:paciente_id>/historico/", HistoricoPacienteView.as_view(), name="historico-paciente"),
+    path("api/usuarios/", include("usuarios.urls")),
 ]
