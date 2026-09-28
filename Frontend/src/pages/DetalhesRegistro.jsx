@@ -230,7 +230,7 @@ function DetalhesRegistro() {
         <div className="card-body">
           {registro.sono ? (
             <p className="mb-0">
-              Registro de sono disponível.
+              {registro.sono.descricao || "-"}
             </p>
           ) : (
             <p className="text-muted mb-0">
@@ -252,13 +252,29 @@ function DetalhesRegistro() {
               Nenhum sintoma registrado.
             </p>
           ) : (
-            <ul className="mb-0">
+            <div>
               {registro.sintomas.map((sintoma) => (
-                <li key={sintoma.id}>
-                  {JSON.stringify(sintoma)}
-                </li>
+                <div key={sintoma.id} className="mb-3">
+                  <strong>{sintoma.descricao}</strong>
+
+                  <div>
+                    <span className="text-muted">
+                      Intensidade:
+                    </span>{" "}
+                    {sintoma.intensidade}
+                  </div>
+
+                  {sintoma.observacao && (
+                    <div>
+                      <span className="text-muted">
+                        Observação:
+                      </span>{" "}
+                      {sintoma.observacao}
+                    </div>
+                  )}
+                </div>
               ))}
-            </ul>
+            </div>
           )}
         </div>
       </div>
